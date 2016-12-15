@@ -12,7 +12,7 @@ A little SFML 2 game, created by a Norwegain student the NTNU (univeristy). Its 
 - [ ] Click two nodes to connect them.
 - [ ] Submit sound, Error sound, Back sound.
 
-
+ 
 
 
 
