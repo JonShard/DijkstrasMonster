@@ -12,3 +12,15 @@ A little SFML 2 game, created by a Norwegain student the NTNU (univeristy). Its 
 - [ ] Click two nodes to connect them.
 - [ ] Submit sound, Error sound, Back sound.
 
+
+
+
+
+
+
+###**Ideas for stuff to add:**
+
+- A reward system for finishing a level with a Good score.
+It can reweal a new joke, displayed on screen and accessable from main menu. It can also be an image.
+- Movement point pickups. The AI can considder the connections to this node to have X less wight. 
+The player will probably think differently, looking at the same situaltion.
