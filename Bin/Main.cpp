@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>		//for Graphics stuff
 #include <iostream>
+#include "HelpFunctions.h"
 
 
 using namespace std;
@@ -24,7 +25,7 @@ int main ()//start  			//first thing that runs, duuh!
 						 Style::Titlebar | Style::Close);
 
 
-
+	testHelp();
 
 
 
