@@ -11,7 +11,7 @@ const int windowHeight = 1200;
 
 
 
-int rantime()					//returns the amount of seconds the app has ran.
+int rantime()					//returns the amount of seconds the app has ran.  
 {
 	Clock upTime;
 	Time ElapsedTime = upTime.getElapsedTime();
@@ -21,7 +21,7 @@ int rantime()					//returns the amount of seconds the app has ran.
 
 int main ()//start  			//first thing that runs, duuh!
 {
-	RenderWindow window(VideoMode(windowHeight, windowWidth), "Grid Movement Test", //opens the window and sets the size.
+	RenderWindow window(VideoMode(windowHeight, windowWidth), "Dijkstras", //opens the window and sets the size.
 						 Style::Titlebar | Style::Close);
 
 
