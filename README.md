@@ -31,3 +31,6 @@ The player will probably think differently, looking at the same situaltion.
  N---N-G-N---N
  |           |
  S      	 S
+
+ - Movable menu buttons? just for the shits and giggles?
+ 
