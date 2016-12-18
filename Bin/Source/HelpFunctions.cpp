@@ -1,5 +1,6 @@
 #include <iostream>
 #include "HelpFunctions.h"
+#include "Node.h"
 
 void testHelp()
 {

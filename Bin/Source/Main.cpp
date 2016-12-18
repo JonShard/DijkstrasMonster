@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>		//for Graphics stuff
 #include <iostream>
 #include "HelpFunctions.h"
+#include "Node.h"
 
 
 using namespace std;
