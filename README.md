@@ -25,12 +25,11 @@ It can reweal a new joke, displayed on screen and accessable from main menu. It 
 - Movement point pickups. The AI can considder the connections to this node to have X less wight. 
 The player will probably think differently, looking at the same situaltion.
 - Race mode where the Monster isn't hunting you. Its instead trying to beat you to the finish line. This mode can have mirrored nodes, so the Goal node is shared, and a mirror plane goes through the goal node: S=start, G=goal, N=node, "- \ /"=connection.
-
+```
    N       N
   / \     / \
  N---N-G-N---N
  |           |
  S      	 S
-
+```
  - Movable menu buttons? just for the shits and giggles?
- 
