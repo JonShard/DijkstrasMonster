@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "HelpFunctions.h"
+#include "Path.h"
 
 using namespace sf;
 
@@ -15,7 +16,7 @@ class Node
 		int powerUp;					//what power the node has 0 is none.
 
 		int lastIndex;					//The last node refered to by this node.
-		int connectedNotes[10]			//index of the connected nodes.
+		int connectedNotes[10];			//index of the connected nodes.
 
 	public:
 		void setPos();					//set a random pos.
@@ -32,4 +33,4 @@ class Node
 		float getRotationSpeed();		//returns the rot speed.
 		int getPowerUp();				//returns the powerup.
 		int getConnectedNode(int index);//returns the index of the x.th connected node. 0 if no empty.
-}
+};

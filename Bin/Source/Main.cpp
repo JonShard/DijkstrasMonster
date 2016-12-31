@@ -2,10 +2,13 @@
 #include <iostream>
 #include "HelpFunctions.h"
 #include "Node.h"
+#include "Path.h"
 
 
 using namespace std;
 using namespace sf;
+
+const float pathThicknessMultiplier = 1;
 
 const int windowWidth = 800;
 const int windowHeight = 1200;
@@ -22,7 +25,7 @@ int rantime()					//returns the amount of seconds the app has ran.
 
 int main ()//start  			//first thing that runs, duuh!
 {
-	RenderWindow window(VideoMode(windowHeight, windowWidth), "Dijkstras", //opens the window and sets the size.
+	RenderWindow window(VideoMode(windowHeight, windowWidth), "Dijkstra's Monster", //opens the window and sets the size.
 						 Style::Titlebar | Style::Close);
 
 
