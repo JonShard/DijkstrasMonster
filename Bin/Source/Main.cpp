@@ -21,14 +21,13 @@ int lastPath = 0;							//Same thing for the paths.
 
 void generateRandomNetwork()
 {
-	int numerOfNodes = randomNumber(5, 20, ranMillisec());	//generat amount of nodes.
+	lastNode = 0;
+	int numerOfNodes = randomNumber(5, MAXNODES, ranMillisec());	//generat amount of nodes.
 	
 	for(int i = 0; i < numerOfNodes; i++)
 	{
 		lastNode++;
-		nodes[lastNode].setPos();
-		nodes[lastNode].setColor();
-
+		nodes[lastNode].setAll();
 	}
 
 }
@@ -40,22 +39,30 @@ void generateRandomNetwork()
 
 int main ()		  							//first thing that runs, duuh!
 {
+	ContextSettings settings;
+	settings.antialiasingLevel = 8;
 
 	RenderWindow window(VideoMode(windowHeight, windowWidth), "Dijkstra's Monster", //opens the window and sets the size.
 						 Style::Titlebar | Style::Close);
 
 
+	RectangleShape nodeBoard (Vector2f(windowHeight - 2*nodeGenMargin, windowWidth - 2*nodeGenMargin));
+	nodeBoard.setPosition(Vector2f(nodeGenMargin, nodeGenMargin));
+	nodeBoard.setFillColor(Color(30,30,30));
+
+	generateRandomNetwork();
 
 	while(window.isOpen())					//ran every update fram the window is open.
 	{
-
-		
-		randomNumber(1, 6000, ranMillisec());
 		
 
 		Event event;
 		while(window.pollEvent(event))		//It think this checks for event happening.
 		{
+			if (Keyboard::isKeyPressed(Keyboard::Escape))		// ESC to quit
+			{
+				window.close();
+			}
 
 			if (Keyboard::isKeyPressed(Keyboard::G))
 			{
@@ -69,12 +76,22 @@ int main ()		  							//first thing that runs, duuh!
 			}
 		}
 
+
+
+		//////////////		Screen drawing		///////////////
+
 		window.clear();						//clears the canvas.
-		
-		//for (int i = 0; i < lastNode; i++) window.draw(shapes[i]);
+		window.draw(nodeBoard);
+
+		for (int i = 0; i < lastNode; i++)
+		{
+			nodes[i].updateRotation();
+			window.draw(nodes[i].getShape());	//drawing nodes.
+		}
 
 		window.display();					//sends the buffer to the display.
 
+		//////////////		Screen drawn		///////////////
 	} 
 
 	

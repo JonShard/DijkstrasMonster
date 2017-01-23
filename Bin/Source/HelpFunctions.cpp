@@ -6,6 +6,7 @@
 using namespace sf;
 using namespace std;
 
+
 Clock clockOne;								//elapsed time in ms.
 int totalSeed = 2415;
 
@@ -17,14 +18,22 @@ void testHelp()
 
 long randomNumber(int min, int max, int seed)		//Random int in a range.
 {
-	cout << "\n\n\nGenerating random number from:\nSeed: " << seed;
-	totalSeed += seed;
-	cout << "\nTotal Seed: " << totalSeed;
+	long result = 0;
+	int attempt = 0;
 
-	long result =  (rngA * totalSeed + rngC) % rngM;
-	result = (min + abs(result)) % max + 1;
+	do{
+		cout << "\n\nGenerating random number from:\nSeed: " << seed;
+		cout << "\nTotal Seed: " << totalSeed;
+		cout << "\nAttempt: " << ++attempt;
+		totalSeed += seed;
+		result =  (rngA * totalSeed + rngC) % rngM;
+		result =  (min + abs(result)) % (max + 1);
+		cout << "\nCHECKING:\t" << result;
 
-	cout << "\n\nRANDOM NUMBER: " << result;
+	}while(result <= min || result > max);
+
+	cout << "\nRANDOM NUMBER:\t==========> " << result;
+
 	return result;
 
 }
