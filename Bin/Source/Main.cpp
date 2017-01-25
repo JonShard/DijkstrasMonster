@@ -21,15 +21,17 @@ void generateRandomNetwork()
 {
 	lastNode = 0;
 	lastPath = 0;
-	int numerOfNodes = 2;//randomNumber(5, MAXNODES);	//generat amount of nodes.
-	int numberOfPaths = 1;//randomNumber(numerOfNodes, MAXPATHS);
+	int numberOfNodes = randomNumber(MINNODES, MAXNODES);	//generat amount of nodes.
+	int numberOfPaths = randomNumber(numberOfNodes, MAXPATHS);
 
-	for(int i = 0; i < numerOfNodes; i++)
+	for(int i = 0; i < numberOfNodes; i++)
 	{
 		nodes[lastNode].setAll();
 		lastNode++;
 
 	}
+	 
+
 	cout << "\n\n\n||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" 
 		 << "\nFinished generating nodes."
 		 << "\n||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\n";
@@ -83,7 +85,7 @@ int main ()		  							//first thing that runs, duuh!
 
 			if(event.type == Event::Closed)	//if the event happening is closed:
 			{								//then close the window as well.
-				window.close();				
+				window.close();
 			}
 		}
 
@@ -111,7 +113,7 @@ int main ()		  							//first thing that runs, duuh!
 		//////////////		Screen drawn		///////////////
 	} 
 
-	
+	cout << "\n\n";				
 	return 0;
 }
 

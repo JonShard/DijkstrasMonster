@@ -15,7 +15,7 @@ Path::Path()
 	node2 = -1;
 }
 
-	
+
 void Path::setAll()
 {
 	cout << "\n\n\n======================="
@@ -32,10 +32,10 @@ void Path::setAll()
 		}while(!addNode(r) && c > 100);		//the c is just there to make sure it does not loop forever.
 		cout << "\nAdded node " << r;
 	}
-
-	pathBody.setSize(Vector2f(lengthBetweenNodes(node1, node2), pathThickness + (weight/4)));
-	pathBody.setPosition(nodePos(node1));
-	pathBody.setRotation(getAngle(nodePos(node1), nodePos(node2)));
+	cout << "\nnode1: " << node1-1 << "\t node2: " << node2-1 << "\tlastNode: " << lastNode;
+	pathBody.setSize(Vector2f(lengthBetweenNodes(node1-1, node2-1), pathThickness + (weight/4))); // -1 to compansate for lastNode++ before generation is complete.
+	pathBody.setPosition(nodePos(node1-1));
+	pathBody.setRotation(getAngle(nodePos(node1-1), nodePos(node2-1)));
 }
 
 
@@ -93,7 +93,7 @@ int Path::getWeight() 							//returns weight of path.
 
 
 int* Path::getNodes()							//returns an array with connected nodes.
-{	int* troll;
+{	int* troll;		//cuz y !
 	troll[0] = node1;
 	troll[1] = node2; 
 	return 	troll;

@@ -5,8 +5,9 @@
 
 const int windowWidth = 800;
 const int windowHeight = 1200;
-const int MAXNODES = 10;		//maximum amount of nodes that can exist.
-const int MAXPATHS = 10;		//maximum amount of paths.
+const int MINNODES = 2;
+const int MAXNODES = 6;		//maximum amount of nodes that can exist.
+const int MAXPATHS = 8;		//maximum amount of paths.
 const int MAXPATHSPERNODE = 10;
 const int MAXWEIGHT = 10;		//can not be greater than 10, cuz then the color will be over 255.
 

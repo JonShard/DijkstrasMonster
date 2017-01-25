@@ -20,7 +20,7 @@ void Node::setAll()
 	cout << "\n\n\n======================="
 		 << "\nGenerating new node #"<< lastNode;
 	setPos();
-	setColor();
+	//setColor();
 	setRotationSpeed();
 	nodeBody.setRadius(nodeRadius);
 	nodeBody.setOrigin(nodeBody.getRadius(), nodeBody.getRadius());	//sets the pivot point of the node.
@@ -42,7 +42,8 @@ void Node::setPos() 					//set a random pos.
 
 
 void Node::setPos(Vector2f vec) 		//set a spesific pos.
-{	position = vec;		}
+{	position = vec;
+	nodeBody.setPosition(position);		}
 
 
 void Node::setRotationSpeed() 			//sets a random rot speed.

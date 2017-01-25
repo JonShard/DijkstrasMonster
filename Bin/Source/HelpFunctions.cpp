@@ -74,19 +74,23 @@ float getAngle(Vector2f v1, Vector2f v2)
    	angle = atan2(deltaX, deltaY);
    	angle = (angle * 180) / PI;
 
-    return ((angle < 0) ? (360 + angle) : angle);
+    return ((angle < 0) ? (360 + angle +90) : angle + 90);
 }
 
 
 int lengthBetween(Vector2f v1, Vector2f v2)		//will return the distance between to points(x,y)
 {
-	return sqrt( pow(abs(v1.x - v2.x),  2)
-			   + pow(abs(v1.y - v2.y),  2));	
+	return sqrt( pow(v1.x - v2.x,  2)
+			   + pow(v1.y - v2.y,  2));	
 }
 
 
 int lengthBetweenNodes(int n1, int n2)			//will return the distance between two nodes.
 {
+	cout << "\nThe distance is: " << lengthBetween(nodes[n1].getPos(), nodes[n2].getPos());
+
+	cout << "\n Positions are: " << nodes[n1].getPos().x << "::" << nodes[n1].getPos().y 
+					   << "\t\t" << nodes[n2].getPos().x << "::" << nodes[n2].getPos().y;
 	return lengthBetween(nodes[n1].getPos(), nodes[n2].getPos());
 }
 
