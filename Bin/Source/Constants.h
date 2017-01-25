@@ -5,15 +5,18 @@
 
 const int windowWidth = 800;
 const int windowHeight = 1200;
-const int MAXNODES = 15;		//maximum amount of nodes that can exist.
-const int MAXPATHS = 50;		//maximum amount of paths.
+const int MAXNODES = 10;		//maximum amount of nodes that can exist.
+const int MAXPATHS = 10;		//maximum amount of paths.
 const int MAXPATHSPERNODE = 10;
+const int MAXWEIGHT = 10;		//can not be greater than 10, cuz then the color will be over 255.
 
-const float pathThicknessMultiplier = 1;
+const float pathThickness = 2;
 const int nodeGenMargin = 100;				//The distance from the window border which nodes can spawn.
 const int nodeRadius = 40;
 const int nodeToNodeMargin = 140;			//The distance a node can spawn from another node. Spacing.							
  
+
+const float PI = 3.141592F;
 
 //RNG values:
 const long rngM = 4294967296;

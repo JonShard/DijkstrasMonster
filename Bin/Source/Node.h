@@ -1,8 +1,8 @@
 #if !defined(__Node_h)
 #define __Node_h
 #include <SFML/Graphics.hpp>			//for Graphics stuff
-#include "Constants.h"
 #include "HelpFunctions.h"
+#include "Constants.h"
 
 
 class Node
@@ -42,7 +42,6 @@ class Node
 };
 
 
-bool emptySpace(sf::Vector2f postion, int rad);
 
 
 

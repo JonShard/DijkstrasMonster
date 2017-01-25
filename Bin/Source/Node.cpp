@@ -18,7 +18,7 @@ Node::Node()
 void Node::setAll()
 {
 	cout << "\n\n\n======================="
-		 << "\nGenerating new node.";
+		 << "\nGenerating new node #"<< lastNode;
 	setPos();
 	setColor();
 	setRotationSpeed();
@@ -33,8 +33,8 @@ void Node::setPos() 					//set a random pos.
 {
 	cout << "\nPOSITION";
 	do{
-	position.x = randomNumber(nodeGenMargin, windowHeight - nodeGenMargin, ranMillisec());
-    position.y = randomNumber(nodeGenMargin, windowWidth - nodeGenMargin, ranMillisec());
+		position.x = randomNumber(nodeGenMargin, windowHeight - nodeGenMargin);
+    	position.y = randomNumber(nodeGenMargin, windowWidth - nodeGenMargin);
     }while(!emptySpace(position, nodeToNodeMargin));
 
     nodeBody.setPosition(position);
@@ -46,7 +46,8 @@ void Node::setPos(Vector2f vec) 		//set a spesific pos.
 
 
 void Node::setRotationSpeed() 			//sets a random rot speed.
-{	rotationSpeed = ((randomNumber(0, 15, ranMillisec()) - randomNumber(0, 15, ranMillisec())) / 100.0F);
+{	cout << "\nROATION SPEED";
+	rotationSpeed = ((randomNumber(0, 15) - randomNumber(0, 15)) / 100.0F);
 }
 
 void Node::setRotationSpeed(float rtspd)//sets a the rot speed.
@@ -59,9 +60,17 @@ void Node::updateRotation()
 
 void Node::setColor() 					//sets random color.
 {
-	int r = randomNumber(100, 240, ranMillisec());
-	int g = randomNumber(100, 240, ranMillisec());
-	int b = randomNumber(100, 240, ranMillisec());
+	cout << "\nCOLOR";
+	int r = 0, g = 0, b = 0, total = 500;
+
+	while(total > 20)
+	{
+		int num = randomNumber(0,3);
+		if (num == 1) r += 20;
+		else if (num == 2) g += 20;
+		else if (num == 3) b += 20;
+		total -= 20;
+	}
 	nodeBody.setFillColor(Color(r, g, b));
 }
 
@@ -118,21 +127,4 @@ int Node::getConnectedNode(int index)	//returns the index of the x.th connected 
 }
 
 
-bool emptySpace(Vector2f location, int rad)		//returns false if node has another node too close to it.
-{
 
-	for (int n = 0; n < lastNode; n++)
-	{
-
-		if ( sqrt(
-				pow(abs(location.x - nodes[n].getPos().x),  2)
-			  + pow(abs(location.y - nodes[n].getPos().y),  2)) < rad)
-		{
-			return false;
-		}
-
-		
-	}
-
-	return true;
-}
