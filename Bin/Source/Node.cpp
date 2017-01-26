@@ -20,13 +20,13 @@ void Node::setAll()
 	cout << "\n\n\n======================="
 		 << "\nGenerating new node #"<< lastNode;
 	setPos();
-	//setColor();
+	setColor();
 	setRotationSpeed();
 	nodeBody.setRadius(nodeRadius);
 	nodeBody.setOrigin(nodeBody.getRadius(), nodeBody.getRadius());	//sets the pivot point of the node.
 	nodeBody.setPointCount(5);
 	nodeBody.setOutlineThickness(-4);
-	nodeBody.setOutlineColor(Color(250, 150, 100));
+	nodeBody.setOutlineColor(Color(nodeBody.getFillColor().r - 10, nodeBody.getFillColor().g -10, nodeBody.getFillColor().b - 10));
 }
 
 void Node::setPos() 					//set a random pos.
@@ -62,16 +62,13 @@ void Node::updateRotation()
 void Node::setColor() 					//sets random color.
 {
 	cout << "\nCOLOR";
-	int r = 0, g = 0, b = 0, total = 500;
+	
+	int r, g, b;
 
-	while(total > 20)
-	{
-		int num = randomNumber(0,3);
-		if (num == 1) r += 20;
-		else if (num == 2) g += 20;
-		else if (num == 3) b += 20;
-		total -= 20;
-	}
+	r = randomNumber(200, 255);
+	g = randomNumber(200, 255);
+	b = randomNumber(200, 255);
+
 	nodeBody.setFillColor(Color(r, g, b));
 }
 

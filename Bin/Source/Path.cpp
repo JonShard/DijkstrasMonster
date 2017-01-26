@@ -18,8 +18,11 @@ Path::Path()
 
 void Path::setAll()
 {
+	setNodes(-1, -1);
+
 	cout << "\n\n\n======================="
-		 << "\nSetting up path #" << lastPath;
+		 << "\nSetting up path #" << lastPath 
+		 << "\nNode1: " << node1 << " \tnode2: " << node2;
 	setWeight();
 	setColor();
 
@@ -27,12 +30,12 @@ void Path::setAll()
 	{
 		do
 		{
-			r = randomNumber(0, lastNode);
+			r = randomNumber(0, lastNode-1);
 			c++;
 		}while(!addNode(r) && c > 100);		//the c is just there to make sure it does not loop forever.
 		cout << "\nAdded node " << r;
 	}
-	cout << "\nnode1: " << node1-1 << "\t node2: " << node2-1 << "\tlastNode: " << lastNode;
+	cout << "\nnode1: " << node1 << "\t node2: " << node2 << "\tlastNode: " << lastNode-1;
 	pathBody.setSize(Vector2f(lengthBetweenNodes(node1-1, node2-1), pathThickness + (weight/4))); // -1 to compansate for lastNode++ before generation is complete.
 	pathBody.setPosition(nodePos(node1-1));
 	pathBody.setRotation(getAngle(nodePos(node1-1), nodePos(node2-1)));
@@ -60,11 +63,13 @@ bool Path::addNode(int index) 		//Adds a node to the array. Returns false if ful
 {
 	if (node1 == -1 && node2 != index)
 	{
+		cout << "\nSetting Node 1 to: " << index;
 		node1 = index;
 		return true;			//set a node successfully.
 	}
-	else if (node2 == -1 && node1 != index)
+	else if (node2 == -1)
 	{
+		cout << "\nSetting Node 2 to: " << index;
 		node2 = index;
 		return true;			//set a node successfully.
 	}
