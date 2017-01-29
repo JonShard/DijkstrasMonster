@@ -32,7 +32,7 @@ void Path::setAll()
 		{
 			r = randomNumber(0, lastNode-1);
 			c++;
-		}while(!addNode(r) && c > 100);		//the c is just there to make sure it does not loop forever.
+		}while(!addNode(r) && c < 1000);		//the c is just there to make sure it does not loop forever.
 		cout << "\nAdded node " << r;
 	}
 	cout << "\nnode1: " << node1 << "\t node2: " << node2 << "\tlastNode: " << lastNode-1;
@@ -61,13 +61,13 @@ void Path::setNodes(int n1, int n2)		//sets both nodes to spesifc indexes.
 
 bool Path::addNode(int index) 		//Adds a node to the array. Returns false if full.
 {
-	if (node1 == -1 && node2 != index)
+	if (node1 == -1)											//problem: sets both node 1 and 2 as the same index.
 	{
 		cout << "\nSetting Node 1 to: " << index;
 		node1 = index;
 		return true;			//set a node successfully.
 	}
-	else if (node2 == -1)
+	else if (node2 == -1 && node1 != index)
 	{
 		cout << "\nSetting Node 2 to: " << index;
 		node2 = index;
