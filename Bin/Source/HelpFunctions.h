@@ -6,6 +6,8 @@
 #include "Constants.h"
 
 
+bool noDoublePaths();
+
 
 long randomNumber(int min, int max);
 int rantime();
@@ -16,6 +18,7 @@ int lengthBetween(sf::Vector2f v1, sf::Vector2f v2);
 int lengthBetweenNodes(int n1, int n2);
 sf::Vector2f normalizeVector(sf::Vector2f);
 bool emptySpace(sf::Vector2f postion, int rad);
+void printAllData();
 
 
 #endif

@@ -27,7 +27,7 @@ class Path
 	void setColor(sf::Color clr);						//sets the color.
 
 	int getWeight();							//returns weight of path.
-	int* getNodes();							//returns an array with connected nodes.
+	sf::Vector2f getNodes();							//returns an array with connected nodes.
 	sf::Color getColor();						//returns the sf::Color.
 	sf::RectangleShape getShape();
 

@@ -18,25 +18,27 @@ Path::Path()
 
 void Path::setAll()
 {
-	setNodes(-1, -1);
 
 	cout << "\n\n\n======================="
-		 << "\nSetting up path #" << lastPath 
-		 << "\nNode1: " << node1 << " \tnode2: " << node2;
+		 << "\nSetting up path #" << lastPath;
+
 	setWeight();
 	setColor();
-
-	for (int r, c, i = 0; i < 2; i++)		//sets the two nodes the path is between.
-	{
-		do
+	do{
+		setNodes(-1, -1);	//reset the node indexes so adding new onces goes smoothly.
+		for (int r, c, i = 0; i < 2; i++)		//sets the two nodes the path is between.
 		{
-			r = randomNumber(0, lastNode-1);
-			c++;
-		}while(!addNode(r) && c < 1000);		//the c is just there to make sure it does not loop forever.
-		cout << "\nAdded node " << r;
-	}
-	cout << "\nnode1: " << node1 << "\t node2: " << node2 << "\tlastNode: " << lastNode-1;
-	pathBody.setSize(Vector2f(lengthBetweenNodes(node1-1, node2-1), pathThickness + (weight/4))); // -1 to compansate for lastNode++ before generation is complete.
+			do
+			{
+				r = randomNumber(0, lastNode);
+				c++;
+			}while(!addNode(r) && c < 1000);		//the c is just there to make sure it does not loop forever.
+			cout << "\nAdded node " << r;
+		}
+		cout << "\nnode1: " << node1 << "\tnode2: " << node2 << "\tlastNode: " << lastNode << "\tlastPath: " << lastPath;
+	}while(!noDoublePaths()); //Crashes here for some reason.
+
+	pathBody.setSize(Vector2f(lengthBetweenNodes(node1-1, node2-1), pathThickness - (weight/3))); // -1 to compansate for lastNode++ before generation is complete.
 	pathBody.setPosition(nodePos(node1-1));
 	pathBody.setRotation(getAngle(nodePos(node1-1), nodePos(node2-1)));
 }
@@ -97,11 +99,9 @@ int Path::getWeight() 							//returns weight of path.
 {	return weight;	}
 
 
-int* Path::getNodes()							//returns an array with connected nodes.
-{	int* troll;		//cuz y !
-	troll[0] = node1;
-	troll[1] = node2; 
-	return 	troll;
+Vector2f Path::getNodes()							//returns an array with connected nodes.
+{	
+	return Vector2f(node1, node2);
 }
 
 

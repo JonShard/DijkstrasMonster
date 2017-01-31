@@ -22,7 +22,11 @@ void generateRandomNetwork()
 	lastNode = 0;
 	lastPath = 0;
 	int numberOfNodes = randomNumber(MINNODES, MAXNODES);	//generat amount of nodes.
-	int numberOfPaths = randomNumber(numberOfNodes, MAXPATHS);
+	int maxpaths = 0;
+
+	for(int i = 0; i < numberOfNodes-1; i++) maxpaths += i;		//maximum nuber of paths a network allows without double paths.
+	int numberOfPaths = randomNumber(numberOfNodes, maxpaths);
+
 
 	for(int i = 0; i < numberOfNodes; i++)
 	{
@@ -31,6 +35,7 @@ void generateRandomNetwork()
 
 	}
 	 
+	cout << "\nNumber of nodes are: " << numberOfNodes << "\t Number of paths are: " << numberOfPaths;
 
 	cout << "\n\n\n||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" 
 		 << "\nFinished generating nodes."

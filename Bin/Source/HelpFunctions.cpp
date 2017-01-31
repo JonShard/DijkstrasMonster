@@ -8,11 +8,44 @@ using namespace std;
 
 
 extern int lastNode;
+extern int lastPath;
 extern Node nodes[];
+extern Path paths[];
 
 
 Clock clockOne;								//elapsed time in ms.
-int totalSeed = 2415;
+int totalSeed = 241745;
+
+bool noDoublePaths()
+{
+	cout << "\nStaring to check if this node already exist in the network.";
+	for(int i = 0; i < lastPath; i ++)
+	{
+		int nd1 = paths[lastPath].getNodes().x;	//Valgrind says "invalid read size 4 from this line."
+		int nd2 = paths[lastPath].getNodes().y;
+
+		int locPathBig = 0;		//Biggest node in local path. As in value of index.
+		int locPathSml = 0; 	//Smallest node in local path.
+		int rmtPathBig = 0; 	//Biggest node in remote Path.
+		int rmtPathSml = 0;		//Smallest node in remote Path.
+
+		//sorting the biggest node value into the correct int for comparison.
+		if (nd1 > nd2){	locPathBig = nd1;	locPathSml = nd2;	}
+		else 		{	locPathBig = nd2;	locPathSml = nd1;	}
+		
+		if (paths[i].getNodes().x > paths[i].getNodes().y)
+			{rmtPathBig = paths[i].getNodes().x;	rmtPathSml = paths[i].getNodes().y;	}
+		else
+			{rmtPathBig = paths[i].getNodes().y;	rmtPathSml = paths[i].getNodes().x;	}
+
+
+		if (locPathBig == rmtPathBig && locPathSml == rmtPathSml)
+			{	cout << "\n This node exist already, retrying...\n";
+				return false;	}
+	}
+	cout << "\nThis path does not exist yet.\n";
+	return true;
+}
 
 
 
@@ -118,3 +151,5 @@ bool emptySpace(Vector2f location, int rad)		//returns false if the point 1 and 
 
 	return true;
 }
+
+

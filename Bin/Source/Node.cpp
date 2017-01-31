@@ -26,7 +26,7 @@ void Node::setAll()
 	nodeBody.setOrigin(nodeBody.getRadius(), nodeBody.getRadius());	//sets the pivot point of the node.
 	nodeBody.setPointCount(5);
 	nodeBody.setOutlineThickness(-4);
-	nodeBody.setOutlineColor(Color(nodeBody.getFillColor().r - 10, nodeBody.getFillColor().g -10, nodeBody.getFillColor().b - 10));
+	nodeBody.setOutlineColor(Color(nodeBody.getFillColor().r - 45, nodeBody.getFillColor().g -50, nodeBody.getFillColor().b -30));
 }
 
 void Node::setPos() 					//set a random pos.
@@ -65,9 +65,9 @@ void Node::setColor() 					//sets random color.
 	
 	int r, g, b;
 
-	r = randomNumber(200, 255);
-	g = randomNumber(200, 255);
-	b = randomNumber(200, 255);
+	r = randomNumber(100, 255);
+	g = randomNumber(100, 255);
+	b = randomNumber(100, 255);
 
 	nodeBody.setFillColor(Color(r, g, b));
 }
