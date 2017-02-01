@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <sstream>										//Used to convert int to string
 #include "Path.h"
 
 using namespace sf;
@@ -7,6 +8,7 @@ using namespace std;
 
 extern int lastNode;
 extern int lastPath;
+extern Font font;
 
 
 Path::Path()
@@ -32,7 +34,8 @@ void Path::setAll()
 			{
 				r = randomNumber(0, lastNode);
 				c++;
-			}while(!addNode(r) && c < 1000);		//the c is just there to make sure it does not loop forever.
+				cout << "\nRetry count: " << c;
+			}while(!addNode(r) && c < 2000);		//the c is just there to make sure it does not loop forever.
 			cout << "\nAdded node " << r;
 		}
 		cout << "\nnode1: " << node1 << "\tnode2: " << node2 << "\tlastNode: " << lastNode << "\tlastPath: " << lastPath;
@@ -41,6 +44,15 @@ void Path::setAll()
 	pathBody.setSize(Vector2f(lengthBetweenNodes(node1-1, node2-1), pathThickness - (weight/3))); // -1 to compansate for lastNode++ before generation is complete.
 	pathBody.setPosition(nodePos(node1-1));
 	pathBody.setRotation(getAngle(nodePos(node1-1), nodePos(node2-1)));
+
+	pathText.setFont(font);
+
+	stringstream convert;
+	convert << weight;			//converting int weight to a string that can be printed.
+	pathText.setString(convert.str());
+	pathText.setColor(pathColor);
+	pathText.setCharacterSize(WEIGHTTEXTSIZE);
+	pathText.setPosition(	Vector2f((nodePos(node1-1).x + nodePos(node2-1).x)/2, (nodePos(node1-1).y + nodePos(node2-1).y)/2));
 }
 
 
@@ -69,7 +81,7 @@ bool Path::addNode(int index) 		//Adds a node to the array. Returns false if ful
 		node1 = index;
 		return true;			//set a node successfully.
 	}
-	else if (node2 == -1 && node1 != index)
+	if (node2 == -1 && node1 != index)
 	{
 		cout << "\nSetting Node 2 to: " << index;
 		node2 = index;
@@ -113,3 +125,7 @@ Color Path::getColor()
 
 RectangleShape Path::getShape()
 {	return pathBody;	}
+
+
+Text Path::getText()
+{	return pathText;	}

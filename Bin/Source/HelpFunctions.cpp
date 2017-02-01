@@ -1,33 +1,33 @@
-#include <iostream>
-#include <cmath>
-#include <SFML/Graphics.hpp>			//for Graphics stuff
+#include <iostream>																//For printing debug info to terminal.
+#include <cmath>																//sqrt(), pow(), abs(), atan2().
+#include <SFML/Graphics.hpp>													//For Graphics stuff
 #include "HelpFunctions.h"
 
-using namespace sf;
-using namespace std;
+using namespace std; 															//The standard liberary namespace.
+using namespace sf;																//The SFML liberary namespace.
 
 
-extern int lastNode;
-extern int lastPath;
-extern Node nodes[];
-extern Path paths[];
+extern Node nodes[];															//Array of nodes on the board.
+extern Path paths[];															//Array of paths between the nodes.
+extern int lastNode;															//Last used node. Useful for loops.
+extern int lastPath;															//Same thing for the paths.
 
 
-Clock clockOne;								//elapsed time in ms.
+Clock clockOne;																	//Elapsed time in ms.
 int totalSeed = 241745;
 
 bool noDoublePaths()
 {
-	cout << "\nStaring to check if this node already exist in the network.";
+	cout << "\nStaring to check if this node already exist in the network.";	//Used to check if a path already exist in the network.
 	for(int i = 0; i < lastPath; i ++)
 	{
-		int nd1 = paths[lastPath].getNodes().x;	//Valgrind says "invalid read size 4 from this line."
-		int nd2 = paths[lastPath].getNodes().y;
+		int nd1 = paths[lastPath].getNodes().x;									//Sorts the paths node indexes into biggest and smallest
+		int nd2 = paths[lastPath].getNodes().y;									//then compairs them to see if thy both are equal.
 
-		int locPathBig = 0;		//Biggest node in local path. As in value of index.
-		int locPathSml = 0; 	//Smallest node in local path.
-		int rmtPathBig = 0; 	//Biggest node in remote Path.
-		int rmtPathSml = 0;		//Smallest node in remote Path.
+		int locPathBig = 0;														//Biggest node in local path. As in value of index.
+		int locPathSml = 0; 													//Smallest node in local path.
+		int rmtPathBig = 0; 													//Biggest node in remote Path.
+		int rmtPathSml = 0;														//Smallest node in remote Path.
 
 		//sorting the biggest node value into the correct int for comparison.
 		if (nd1 > nd2){	locPathBig = nd1;	locPathSml = nd2;	}
@@ -39,17 +39,18 @@ bool noDoublePaths()
 			{rmtPathBig = paths[i].getNodes().y;	rmtPathSml = paths[i].getNodes().x;	}
 
 
-		if (locPathBig == rmtPathBig && locPathSml == rmtPathSml)
+		if (locPathBig == rmtPathBig && locPathSml == rmtPathSml)				//Checks If the indexes are equal.
 			{	cout << "\n This node exist already, retrying...\n";
-				return false;	}
+				return false;													//False if they are equal.
+			}
 	}
 	cout << "\nThis path does not exist yet.\n";
-	return true;
+	return true;																//True if they are different.
 }
 
 
 
-long randomNumber(int min, int max)		//Random int in a range.
+long randomNumber(int min, int max)												//Random int in a range.
 {
 	long result = 0;
 	int attempt = 0;
@@ -73,7 +74,7 @@ long randomNumber(int min, int max)		//Random int in a range.
 }
 
 
-int rantime()							//returns the amount of seconds the app has ran.  
+int rantime()																	//Returns the amount of seconds the app has ran.  
 {
 	Clock upTime;
 	Time ElapsedTime = upTime.getElapsedTime();
@@ -81,7 +82,7 @@ int rantime()							//returns the amount of seconds the app has ran.
 }
 
 
-int ranMillisec()
+int ranMillisec()																//Returns the current milliSecond.
 {
 	Time bobby = clockOne.getElapsedTime();
 
@@ -93,11 +94,11 @@ int ranMillisec()
 }
 
 
-Vector2f nodePos(int index)
+Vector2f nodePos(int index)														//Returns the postion of a node in nodes[]
 {	return nodes[index].getPos();	}
 
 
-float getAngle(Vector2f v1, Vector2f v2)
+float getAngle(Vector2f v1, Vector2f v2)										//Retuns the angle between two points.
 {
    	float angle = 0;
 	
@@ -111,14 +112,14 @@ float getAngle(Vector2f v1, Vector2f v2)
 }
 
 
-int lengthBetween(Vector2f v1, Vector2f v2)		//will return the distance between to points(x,y)
+int lengthBetween(Vector2f v1, Vector2f v2)										//Will return the distance between to points(x,y)
 {
 	return sqrt( pow(v1.x - v2.x,  2)
 			   + pow(v1.y - v2.y,  2));	
 }
 
 
-int lengthBetweenNodes(int n1, int n2)			//will return the distance between two nodes.
+int lengthBetweenNodes(int n1, int n2)											//Will return the distance between two nodes.
 {
 	cout << "\nThe distance is: " << lengthBetween(nodes[n1].getPos(), nodes[n2].getPos());
 
