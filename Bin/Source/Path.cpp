@@ -15,7 +15,7 @@ Path::Path()
 {
 	node1 = -1;	// means not set yet.
 	node2 = -1;
-}
+}	
 
 
 void Path::setAll()

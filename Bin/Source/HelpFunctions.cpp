@@ -16,6 +16,29 @@ extern int lastPath;															//Same thing for the paths.
 Clock clockOne;																	//Elapsed time in ms.
 int totalSeed = 241745;
 
+
+void generate(int nodeCount, int pathCount, int allowedPaths)			//Handles the actuall generation,
+{																		//calls the object to have them generate
+	for(int i = 0; i < nodeCount; i++)									//the right values.
+	{
+		nodes[lastNode].setAll();
+		lastNode++;
+	}
+	 
+	cout << "\n\n\n||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" 
+		 << "\nNumber of nodes are: " << nodeCount << "\t Number of paths are: " 
+		 << pathCount << "\t  Max allowed nodes: " << allowedPaths
+		 << "\nFinished generating nodes."
+		 << "\n||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\n";
+
+	for(int j = 0; j < pathCount; j++)
+	{
+		paths[lastPath].setAll();
+		lastPath++;
+	}
+}
+
+
 bool noDoublePaths()
 {
 	cout << "\nStaring to check if this node already exist in the network.";	//Used to check if a path already exist in the network.

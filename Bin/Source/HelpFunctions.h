@@ -5,10 +5,9 @@
 #include "Path.h"								//The header file for the path class.
 #include "Constants.h"							//The header file containing all the Constants used in this program.
 
-
+													//Generates the Network with the set arguments. Calls the object functions.
+void generate(int nodeCount, int pathCount, int allowedPaths);
 bool noDoublePaths();								//Used to check if a path already exist in the network.
-
-
 long randomNumber(int min, int max);				//Used to generate a random number between a min and max value.
 int rantime();										//Returns the amount of seconds the game has ran.
 int ranMillisec();									//Retuns the current millisecond.
