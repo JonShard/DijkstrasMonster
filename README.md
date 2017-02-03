@@ -7,7 +7,7 @@ A little SFML 2 game, created by a Norwegain student the NTNU (univeristy). Its 
 #####Version 0.0		(The first kick)
 
 - [x] An empty window can be opened.
-- [ ] Press a key to generate random nodes.
+- [x] Press a key to generate random nodes.
 - [ ] Click empty space to create a node.
 - [ ] Click two nodes to connect them.
 - [ ] Submit sound, Error sound, Back sound.
@@ -20,11 +20,12 @@ A little SFML 2 game, created by a Norwegain student the NTNU (univeristy). Its 
 
 ###**Ideas for stuff to add:**
 
+- A sepererate background to the main menu(or a filter?) so the players feel like there is a transition from menu to game.
 - A reward system for finishing a level with a Good score.
 It can reweal a new joke, displayed on screen and accessable from main menu. It can also be an image.
 - Movement point pickups. The AI can considder the connections to this node to have X less wight. 
 The player will probably think differently, looking at the same situaltion.
-- Race mode where the Monster isn't hunting you. Its instead trying to beat you to the finish line. This mode can have mirrored nodes, so the Goal node is shared, and a mirror plane goes through the goal node: S=start, G=goal, N=node, "- \ /"=connection.
+- Race mode where the Monster isn't hunting you. Its instead trying to beat you to the finish line. This mode can have mirrored nodes, so the Goal node is shared, and a mirror plane goes through the goal node: S=start, G=goal, N=node, "- \ /"=Pahts.
 ```
    N       N
   / \     / \
