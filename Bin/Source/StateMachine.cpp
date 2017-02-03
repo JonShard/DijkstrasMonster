@@ -16,7 +16,10 @@ extern int lastPath;															//Same thing for the paths.
 extern Font font;														//The font used by all the text.
 extern RenderWindow window;												//The window rendering the grapthics
 
+extern MainMenuScreen MMS;
+extern OptionsScreen OPS;
 extern GameScreen GMS;
+
 
 void update()
 {
@@ -65,6 +68,9 @@ void update()
 
 void updateMainMenu()
 {
+	MMS.bkBottomSprite.rotate(MMS.bkBottomRotation);
+	MMS.bkMiddleSprite.rotate(MMS.bkMiddleRotation);
+	MMS.bkTopSprite.rotate(MMS.bkTopRotation);
 
 
 	drawMainMenu();
@@ -89,7 +95,11 @@ void updateGame()
 
 void drawMainMenu()
 {
+	window.draw(MMS.bkBottomSprite);
+	window.draw(MMS.bkMiddleSprite);
+	window.draw(MMS.bkTopSprite);
 
+	window.draw(MMS.logo);
 
 
 }

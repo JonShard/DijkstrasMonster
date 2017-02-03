@@ -18,7 +18,7 @@ const int nodeRadius = 40;
 const int nodeToNodeMargin = 140;			//The distance a node can spawn from another node. Spacing.							
  
 
-const float PI = 3.141592F;
+const float PI = 3.1415926535897F;
 
 //RNG values:
 const long rngM = 4294967296;

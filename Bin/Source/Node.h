@@ -20,7 +20,6 @@ class Node
 		int connectedNotes[MAXPATHSPERNODE];	//Index of the connected nodes.
 
 	public:
-		Node();
 		void setAll();
 		void setPos();							//Set a random pos.
 		void setPos(sf::Vector2f vec);			//Set a spesific pos.

@@ -10,11 +10,6 @@ extern Node nodes[];		//imports global veriables from main:
 extern int lastNode;
 
 
-Node::Node()
-{
-	
-}
-
 void Node::setAll()
 {
 	cout << "\n\n\n======================="

@@ -34,8 +34,8 @@ Font font;									//The font imported from file used to print text on Screen.
 
 int main ()		  														//First thing that runs, duuh!
 {
-	settings.antialiasingLevel = 4;										//If the video processor supports it, the graphics will be
-																		//rended with antialiasing of 4. Planning to allow this to be changed in options.
+	settings.antialiasingLevel = 8;										//If the video processor supports it, the graphics will be
+																	//rended with antialiasing of 4. Planning to allow this to be changed in options.
 
 	window.create(VideoMode(windowHeight, windowWidth), "Dijkstra's Monster", //opens the window and sets the size.
 						 Style::Titlebar | Style::Close);	
@@ -47,7 +47,6 @@ int main ()		  														//First thing that runs, duuh!
 	}
 
 	updateScreens();
-
 
 
 	//update()
