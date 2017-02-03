@@ -12,14 +12,14 @@
 
 void update();
 void updateMainMenu();
-void updateBackground();
+void updateBackground(int select);
 void updateOptions();
 void updateGame();
 
 void drawMainMenu();
 void drawOptions();
 void drawGame();
-void drawBackground();
+void drawBackground(int select);
 
 void randomNetwork();
 void spesificNetwork(int nds, int pts);

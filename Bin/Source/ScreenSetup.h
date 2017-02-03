@@ -29,7 +29,16 @@ struct GameScreen
 };
 
 
-struct Background
+struct BackgroundMenu
+{
+	sf::Sprite bkSmokeBottomSprite;
+	sf::Sprite bkSmokeTopSprite;
+	sf::Texture bkSmokeTexture;
+	float bkSmokeTopRotation;
+	float bkSmokeBottomRotation;
+};
+
+struct BackgroundGame
 {
 	sf::Sprite bkTopSprite;	//Background images:
 	sf::Sprite bkMiddleSprite;

@@ -13,7 +13,8 @@ extern RenderWindow window;
 MainMenuScreen MMS;
 OptionsScreen OPS;
 GameScreen GMS;
-Background BKG;
+BackgroundMenu BKM;
+BackgroundGame BKG;
 
 
 void configureUI()
@@ -22,6 +23,7 @@ void configureUI()
 	int wY = window.getSize().y;
 
 
+	//Main menu GUI items
 	if(!MMS.logoTexture.loadFromFile("../Sprites/logo.png")) 
 			cout << "\nFailed loading Sprites/Logo.png";	//Load texture.
 	MMS.logo.setTexture(MMS.logoTexture, true);																//set texture to the sprite.
@@ -31,6 +33,37 @@ void configureUI()
 	MMS.logo.setOrigin(MMS.logoTexture.getSize().x/2, MMS.logoTexture.getSize().y/2);						//Set origin point, so its not being moved from top-right.
 	
 
+
+
+
+	//Menu background images
+	if(!BKM.bkSmokeTexture.loadFromFile("../Sprites/Backgrounds/back_Smoke.png"))
+			cout << "\nFailed loading Sprites/Backgrounds/back_Smoke.png";	//Load texture.
+	BKM.bkSmokeBottomSprite.setTexture(BKM.bkSmokeTexture, true);																//set texture to the sprite.
+	BKM.bkSmokeTexture.setSmooth(true);
+	BKM.bkSmokeBottomSprite.setColor(Color(255,255,255,70));																		//enable texture sommthing.
+	BKM.bkSmokeBottomSprite.setScale(wX/float(BKM.bkSmokeTexture.getSize().x)*sqrt(2) *2, wX/float(BKM.bkSmokeTexture.getSize().x)*sqrt(2)*2);																			//scale the texture to good size.
+	BKM.bkSmokeBottomSprite.setPosition(wX, wY/2);							//Sprite to the right place on screen.
+	BKM.bkSmokeBottomSprite.setOrigin(BKM.bkSmokeTexture.getSize().x/2, BKM.bkSmokeTexture.getSize().y/2);						//Set origin point, so its not being moved from top-right.
+	BKM.bkSmokeBottomRotation = 0.02;
+
+
+	if(!BKM.bkSmokeTexture.loadFromFile("../Sprites/Backgrounds/back_Smoke.png"))
+			cout << "\nFailed loading Sprites/Backgrounds/back_Smoke.png";	//Load texture.
+	BKM.bkSmokeTopSprite.setTexture(BKM.bkSmokeTexture, true);																//set texture to the sprite.
+	BKM.bkSmokeTexture.setSmooth(true);
+	BKM.bkSmokeTopSprite.setColor(Color(255,255,255,70));																		//enable texture sommthing.
+	BKM.bkSmokeTopSprite.setScale(wX/float(BKM.bkSmokeTexture.getSize().x)*sqrt(2) *2, wX/float(BKM.bkSmokeTexture.getSize().x)*sqrt(2)*2);																			//scale the texture to good size.
+	BKM.bkSmokeTopSprite.setPosition(0, wY/2);							//Sprite to the right place on screen.
+	BKM.bkSmokeTopSprite.setOrigin(BKM.bkSmokeTexture.getSize().x/2, BKM.bkSmokeTexture.getSize().y/2);						//Set origin point, so its not being moved from top-right.
+	BKM.bkSmokeTopRotation = -0.015;
+
+
+
+
+
+
+	//Game background images
 	if(!BKG.bkBottomTexture.loadFromFile("../Sprites/Backgrounds/back_Bottom.png")) 
 			cout << "\nFailed loading Sprites/Backgrounds/back_Bottom.png";	//Load texture.
 	BKG.bkBottomSprite.setTexture(BKG.bkBottomTexture, true);																//set texture to the sprite.
@@ -60,12 +93,6 @@ void configureUI()
 	BKG.bkTopSprite.setPosition(wX /2, wY/2);							//Sprite to the right place on screen.
 	BKG.bkTopSprite.setOrigin(BKG.bkTopTexture.getSize().x/2, BKG.bkTopTexture.getSize().y/2);						//Set origin point, so its not being moved from top-right.
 	BKG.bkTopRotation = 0.03;
-	
-
-
-
-
-	
 	
 
 }

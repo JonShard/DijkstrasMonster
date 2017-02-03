@@ -19,7 +19,8 @@ extern RenderWindow window;												//The window rendering the grapthics
 extern MainMenuScreen MMS;
 extern OptionsScreen OPS;
 extern GameScreen GMS;
-extern Background BKG;
+extern BackgroundGame BKG;
+extern BackgroundMenu BKM;
 
 
 void update()
@@ -67,18 +68,27 @@ void update()
 }
 
 
-void updateBackground()
+void updateBackground(int select)
 {
-	BKG.bkBottomSprite.rotate(BKG.bkBottomRotation);
-	BKG.bkMiddleSprite.rotate(BKG.bkMiddleRotation);
-	BKG.bkTopSprite.rotate(BKG.bkTopRotation);
+	if(select == 0)
+	{
+		BKG.bkBottomSprite.rotate(BKG.bkBottomRotation);
+		BKG.bkMiddleSprite.rotate(BKG.bkMiddleRotation);
+		BKG.bkTopSprite.rotate(BKG.bkTopRotation);
+	}
+	else if(select == 1)
+	{
+		BKM.bkSmokeBottomSprite.rotate(BKM.bkSmokeBottomRotation);
+		BKM.bkSmokeTopSprite.rotate(BKM.bkSmokeTopRotation);
+
+	}
 }
 
 
 void updateMainMenu()
 {
 
-	updateBackground();
+	updateBackground(1);
 	drawMainMenu();
 }
 
@@ -86,7 +96,7 @@ void updateMainMenu()
 void updateOptions()
 {
 
-	updateBackground();
+	updateBackground(1);
 	drawOptions();
 }
 
@@ -94,7 +104,7 @@ void updateOptions()
 void updateGame()
 {
 
-	updateBackground();
+	updateBackground(0);
 	drawGame();
 }
 
@@ -102,20 +112,20 @@ void updateGame()
 void drawMainMenu()
 {
 
-	drawBackground();
+	drawBackground(1);
 	window.draw(MMS.logo);
 }
 
 
 void drawOptions()
 {
-	drawBackground();	
+	drawBackground(1);	
 }
 
 
 void drawGame()
 {
-	drawBackground();
+	drawBackground(0);
 
 	for(int p = 0; p < lastPath; p++)								//Draws the paths.
 		{
@@ -132,11 +142,19 @@ void drawGame()
 }
 
 
-void drawBackground()
+void drawBackground(int select)											//Select whitch background to draw.
 {
-	window.draw(BKG.bkBottomSprite);
-	window.draw(BKG.bkMiddleSprite);
-	window.draw(BKG.bkTopSprite);
+	if(select == 0)
+	{
+		window.draw(BKG.bkBottomSprite);
+		window.draw(BKG.bkMiddleSprite);
+		window.draw(BKG.bkTopSprite);
+	}
+	else if(select == 1)
+	{
+		window.draw(BKM.bkSmokeBottomSprite);
+		window.draw(BKM.bkSmokeTopSprite);
+	}
 }
 
 
