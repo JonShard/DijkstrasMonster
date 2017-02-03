@@ -19,6 +19,7 @@ extern RenderWindow window;												//The window rendering the grapthics
 extern MainMenuScreen MMS;
 extern OptionsScreen OPS;
 extern GameScreen GMS;
+extern Background BKG;
 
 
 void update()
@@ -66,13 +67,18 @@ void update()
 }
 
 
+void updateBackground()
+{
+	BKG.bkBottomSprite.rotate(BKG.bkBottomRotation);
+	BKG.bkMiddleSprite.rotate(BKG.bkMiddleRotation);
+	BKG.bkTopSprite.rotate(BKG.bkTopRotation);
+}
+
+
 void updateMainMenu()
 {
-	MMS.bkBottomSprite.rotate(MMS.bkBottomRotation);
-	MMS.bkMiddleSprite.rotate(MMS.bkMiddleRotation);
-	MMS.bkTopSprite.rotate(MMS.bkTopRotation);
 
-
+	updateBackground();
 	drawMainMenu();
 }
 
@@ -80,7 +86,7 @@ void updateMainMenu()
 void updateOptions()
 {
 
-
+	updateBackground();
 	drawOptions();
 }
 
@@ -88,32 +94,28 @@ void updateOptions()
 void updateGame()
 {
 
-
+	updateBackground();
 	drawGame();
 }
 
 
 void drawMainMenu()
 {
-	window.draw(MMS.bkBottomSprite);
-	window.draw(MMS.bkMiddleSprite);
-	window.draw(MMS.bkTopSprite);
 
+	drawBackground();
 	window.draw(MMS.logo);
-
-
 }
 
 
 void drawOptions()
 {
-
+	drawBackground();	
 }
 
 
 void drawGame()
 {
-	window.draw(GMS.nodeBoard);											//A gray rectangle that marks the area nodes can spawn.
+	drawBackground();
 
 	for(int p = 0; p < lastPath; p++)								//Draws the paths.
 		{
@@ -128,6 +130,15 @@ void drawGame()
 		}
 
 }
+
+
+void drawBackground()
+{
+	window.draw(BKG.bkBottomSprite);
+	window.draw(BKG.bkMiddleSprite);
+	window.draw(BKG.bkTopSprite);
+}
+
 
 
 void randomNetwork()													//Generate a random network withing the parametes

@@ -17,7 +17,7 @@ using namespace sf;							//The SFML liberary namespace.
 
 
 //Global variables
-int state = 2;								//what state the game is in: MainMenu = 0, Options = 1, Game = 2
+int state = 0;								//what state the game is in: MainMenu = 0, Options = 1, Game = 2
 Node nodes[MAXNODES + 1];					//Array of nodes on the board.
 Path paths[MAXPATHS + 1];					//Array of paths between the nodes.
 int lastNode = 0;							//Last used node. Useful for loops.
@@ -46,7 +46,7 @@ int main ()		  														//First thing that runs, duuh!
 		cout << "\nUnable to load font. Looking for \"FONT.fft\" in OtherAssets folder.";
 	}
 
-	updateScreens();
+	configureUI();
 
 
 	//update()

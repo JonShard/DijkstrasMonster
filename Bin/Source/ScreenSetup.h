@@ -12,21 +12,9 @@ struct MainMenuScreen
 {
 	sf::Sprite logo;			//Logo image:
 	sf::Texture logoTexture;
-	
-	sf::Sprite bkTopSprite;	//Background images:
-	sf::Sprite bkMiddleSprite;
-	sf::Sprite bkBottomSprite;
-	sf::Texture bkTopTexture;
-	sf::Texture bkMiddleTexture;
-	sf::Texture bkBottomTexture;
-	float bkTopRotation;				//The speed the the background images will be rotating at.
-	float bkMiddleRotation;
-	float bkBottomRotation;
-
 
 	//Button start
 	//button options
-	
 	
 };
 
@@ -37,11 +25,25 @@ struct OptionsScreen
 
 struct GameScreen
 {
-	sf::RectangleShape nodeBoard;
 
 };
 
-void updateScreens();
+
+struct Background
+{
+	sf::Sprite bkTopSprite;	//Background images:
+	sf::Sprite bkMiddleSprite;
+	sf::Sprite bkBottomSprite;
+	sf::Texture bkTopTexture;
+	sf::Texture bkMiddleTexture;
+	sf::Texture bkBottomTexture;
+	float bkTopRotation;				//The speed the the background images will be rotating at.
+	float bkMiddleRotation;
+	float bkBottomRotation;
+
+};
+
+void configureUI();
 
 
 #endif
