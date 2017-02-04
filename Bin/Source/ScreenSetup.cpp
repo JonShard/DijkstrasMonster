@@ -41,22 +41,21 @@ void configureUI()
 			cout << "\nFailed loading Sprites/Backgrounds/back_Smoke.png";	//Load texture.
 	BKM.bkSmokeBottomSprite.setTexture(BKM.bkSmokeTexture, true);																//set texture to the sprite.
 	BKM.bkSmokeTexture.setSmooth(true);
-	BKM.bkSmokeBottomSprite.setColor(Color(255,255,255,70));																		//enable texture sommthing.
-	BKM.bkSmokeBottomSprite.setScale(wX/float(BKM.bkSmokeTexture.getSize().x)*sqrt(2) *2, wX/float(BKM.bkSmokeTexture.getSize().x)*sqrt(2)*2);																			//scale the texture to good size.
+	BKM.bkSmokeBottomSprite.setColor(Color(220,220,255,75));																		//enable texture sommthing.
+	BKM.bkSmokeBottomSprite.setScale(wX/float(BKM.bkSmokeTexture.getSize().x)*sqrt(2) *1.8, wX/float(BKM.bkSmokeTexture.getSize().x)*sqrt(2)*1.8);																			//scale the texture to good size.
 	BKM.bkSmokeBottomSprite.setPosition(wX, wY/2);							//Sprite to the right place on screen.
 	BKM.bkSmokeBottomSprite.setOrigin(BKM.bkSmokeTexture.getSize().x/2, BKM.bkSmokeTexture.getSize().y/2);						//Set origin point, so its not being moved from top-right.
-	BKM.bkSmokeBottomRotation = 0.02;
+	BKM.bkSmokeBottomRotation = 0.016;
 
 
-	if(!BKM.bkSmokeTexture.loadFromFile("../Sprites/Backgrounds/back_Smoke.png"))
-			cout << "\nFailed loading Sprites/Backgrounds/back_Smoke.png";	//Load texture.
 	BKM.bkSmokeTopSprite.setTexture(BKM.bkSmokeTexture, true);																//set texture to the sprite.
 	BKM.bkSmokeTexture.setSmooth(true);
-	BKM.bkSmokeTopSprite.setColor(Color(255,255,255,70));																		//enable texture sommthing.
-	BKM.bkSmokeTopSprite.setScale(wX/float(BKM.bkSmokeTexture.getSize().x)*sqrt(2) *2, wX/float(BKM.bkSmokeTexture.getSize().x)*sqrt(2)*2);																			//scale the texture to good size.
+	BKM.bkSmokeTopSprite.setColor(Color(220,220,255,75));																		//enable texture sommthing.
+	BKM.bkSmokeTopSprite.setScale(wX/float(BKM.bkSmokeTexture.getSize().x)*sqrt(2) *1.8, wX/float(BKM.bkSmokeTexture.getSize().x)*sqrt(2)*1.8);																			//scale the texture to good size.
 	BKM.bkSmokeTopSprite.setPosition(0, wY/2);							//Sprite to the right place on screen.
 	BKM.bkSmokeTopSprite.setOrigin(BKM.bkSmokeTexture.getSize().x/2, BKM.bkSmokeTexture.getSize().y/2);						//Set origin point, so its not being moved from top-right.
-	BKM.bkSmokeTopRotation = -0.015;
+	BKM.bkSmokeTopSprite.rotate(140); //start one of them offset.
+	BKM.bkSmokeTopRotation = -0.012;
 
 
 
