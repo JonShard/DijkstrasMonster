@@ -24,8 +24,9 @@ void configureUI()
 
 
 	//Main menu GUI items
-	if(!MMS.logoTexture.loadFromFile("../Sprites/logo.png")) 
-			cout << "\nFailed loading Sprites/Logo.png";	//Load texture.
+	if(!MMS.logoTexture.loadFromFile("../Sprites/logo.png", IntRect(0,0, 1540, 600))) 
+			cout << "\nFailed loading Sprites/logo.png";	//Load texture.
+	else cout << "\nLoaded logo.png";
 	MMS.logo.setTexture(MMS.logoTexture, true);																//set texture to the sprite.
 	MMS.logoTexture.setSmooth(true);																		//enable texture sommthing.
 	MMS.logo.setScale(0.5, 0.5);																			//scale the texture to good size.
@@ -39,6 +40,7 @@ void configureUI()
 	//Menu background images
 	if(!BKM.bkSmokeTexture.loadFromFile("../Sprites/Backgrounds/back_Smoke.png"))
 			cout << "\nFailed loading Sprites/Backgrounds/back_Smoke.png";	//Load texture.
+	else cout << "\nLoaded back_Smoke.png";
 	BKM.bkSmokeBottomSprite.setTexture(BKM.bkSmokeTexture, true);																//set texture to the sprite.
 	BKM.bkSmokeTexture.setSmooth(true);
 	BKM.bkSmokeBottomSprite.setColor(Color(220,220,255,75));																		//enable texture sommthing.
@@ -65,6 +67,7 @@ void configureUI()
 	//Game background images
 	if(!BKG.bkBottomTexture.loadFromFile("../Sprites/Backgrounds/back_Bottom.png")) 
 			cout << "\nFailed loading Sprites/Backgrounds/back_Bottom.png";	//Load texture.
+	else cout << "\nLoaded back_Bottom.png";
 	BKG.bkBottomSprite.setTexture(BKG.bkBottomTexture, true);																//set texture to the sprite.
 	BKG.bkBottomTexture.setSmooth(true);																		//enable texture sommthing.
 	BKG.bkBottomSprite.setScale(wX/float(BKG.bkBottomTexture.getSize().x)*sqrt(2), wX/float(BKG.bkBottomTexture.getSize().x)*sqrt(2));																			//scale the texture to good size.
@@ -74,6 +77,7 @@ void configureUI()
 
 	if(!BKG.bkMiddleTexture.loadFromFile("../Sprites/Backgrounds/back_BlueGreen.png")) 
 			cout << "\nFailed loading Sprites/Backgrounds/back_BlueGreen.png";	//Load texture.
+	else cout << "\nLoaded back_BlueGreen.png";
 	BKG.bkMiddleSprite.setTexture(BKG.bkMiddleTexture, true);																//set texture to the sprite.
 	BKG.bkMiddleTexture.setSmooth(true);
 	BKG.bkMiddleSprite.setColor(Color(255,255,255,120));																		//enable texture sommthing.
@@ -85,6 +89,7 @@ void configureUI()
 
 	if(!BKG.bkTopTexture.loadFromFile("../Sprites/Backgrounds/back_OrangeBlue.png")) 
 			cout << "\nFailed loading Sprites/Backgrounds/back_OrageBlue.png";	//Load texture.
+	else cout << "\nLoaded back_OrangeBlue.png";
 	BKG.bkTopSprite.setTexture(BKG.bkTopTexture, true);																//set texture to the sprite.
 	BKG.bkTopTexture.setSmooth(true);
 	BKG.bkTopSprite.setColor(Color(255,255,255,80));																		//enable texture sommthing.

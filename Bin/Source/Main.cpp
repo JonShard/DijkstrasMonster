@@ -3,12 +3,12 @@
 #include <SFML/Graphics.hpp>		//for Graphics stuff
 #include <iostream>					//Used for printing to screen(debug) and some input.
 
-
 #include "HelpFunctions.h"					//The header file for HelpFunctions, contains useful functions.
 #include "StateMachine.h"					//Handles switching between states and updating them.
 #include "ScreenSetup.h"
 #include "Node.h"							//The header file for the node class.
 #include "Path.h"							//The header file for the path class.
+#include "SoundManager.h"
 #include "Constants.h"						//The header file containing all the Constants used in this program.
 
 using namespace std; 						//The standard liberary namespace.
@@ -47,6 +47,7 @@ int main ()		  														//First thing that runs, duuh!
 	}
 
 	configureUI();
+	configureSounds();
 
 
 	//update()

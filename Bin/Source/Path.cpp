@@ -41,16 +41,16 @@ void Path::setAll()
 		cout << "\nnode1: " << node1 << "\tnode2: " << node2 << "\tlastNode: " << lastNode << "\tlastPath: " << lastPath;
 	}while(!noDoublePaths()); //Crashes here for some reason.
 
+	
 	pathBody.setSize(Vector2f(lengthBetweenNodes(node1-1, node2-1), pathThickness - (weight/3))); // -1 to compansate for lastNode++ before generation is complete.
 	pathBody.setPosition(nodePos(node1-1));
 	pathBody.setRotation(getAngle(nodePos(node1-1), nodePos(node2-1)));
 
 	pathText.setFont(font);
-
 	stringstream convert;
 	convert << weight;			//converting int weight to a string that can be printed.
 	pathText.setString(convert.str());
-	pathText.setColor(pathColor);
+	pathText.setColor(pathColor + Color(30,30,30,0));
 	pathText.setCharacterSize(WEIGHTTEXTSIZE);
 	pathText.setPosition(	Vector2f((nodePos(node1-1).x + nodePos(node2-1).x)/2, (nodePos(node1-1).y + nodePos(node2-1).y)/2));
 }

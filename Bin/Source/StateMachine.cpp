@@ -160,7 +160,9 @@ void drawBackground(int select)											//Select whitch background to draw.
 
 
 void randomNetwork()													//Generate a random network withing the parametes
-{																		//set in the constant file. MINNODES, MAXNODES...
+{	
+	playGuiSound(1); //Switch sound.
+																	//set in the constant file. MINNODES, MAXNODES...
 	lastNode = 0;
 	lastPath = 0;
 	int numberOfNodes = randomNumber(MINNODES, MAXNODES);				//Generate amount of nodes.
